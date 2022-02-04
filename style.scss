@@ -1,0 +1,330 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  transition: all .1s linear;
+}
+:root {
+  --color: #fff;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-size: 16px;
+  font-family: "system-ui";
+  color: var(--color);
+}
+main {
+  background-image: linear-gradient(
+    160deg,
+    rgb(55, 12, 211),
+    rgb(221, 37, 114)
+  );
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 1020px) {
+  .container {
+    width: 90%;
+  }
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  .logo {
+    padding: 2px 5px;
+    z-index: 1;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 36px;
+      background-color: red;
+      border-radius: 50%;
+      transform: rotate(60deg);
+      z-index: -1;
+    }
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    li {
+      margin: 0 20px;
+      a {
+        color: var(--color);
+        padding: 0 6px 2px;
+        border-radius: 10px;
+        font-weight: 500;
+        &.active {
+          color: rgb(27, 3, 66);
+          background-color: var(--color);
+        }
+        &:hover {
+          color: rgb(27, 3, 66);
+          background-color: var(--color);
+        }
+      }
+    }
+  }
+  .join {
+    a {
+      margin: 0 4px;
+      padding: 1px 10px 2px;
+      border-radius: 10px;
+      border: 1px solid rgb(228, 81, 81);
+      color: var(--color);
+      font-weight: 600;
+    }
+    & :nth-child(2) {
+      background-color: rgb(236, 0, 98);
+    }
+  }
+}
+%btnStyle {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background-color: rgb(236, 0, 98);
+  color: var(--color);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+ion-icon {
+  color: rgb(236, 0, 98);
+  font-size: 40px;
+  cursor: pointer;
+}
+.intro {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0 0;
+  .info {
+    padding-top: 50px;
+    :first-child {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 70px;
+      font-weight: 600;
+    }
+    :nth-child(3) {
+      width: 350px;
+      font-weight: 400;
+      color: rgb(193, 190, 190);
+      margin: 25px 0 15px;
+    }
+    :nth-child(4) {
+      @extend :first-child;
+      margin-bottom: 40px;
+    }
+    :nth-child(5) {
+      @extend %btnStyle;
+    }
+  }
+  .cover {
+    img {
+      object-fit: cover;
+      height: 455px;
+      width: 390px;
+    }
+  }
+}
+
+@media (max-width: 910px) {
+  .container{
+    width: 80%;
+  }
+  .intro {
+    margin-bottom: 90px;
+    .cover {
+      display: none;
+    }
+  }
+}
+
+.recently {
+  height: 150px;
+  display: flex;
+  justify-content: space-evenly;
+  .box {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 25px 4px;
+    height: fit-content;
+    .img {
+      height: 150px;
+      width: 150px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    h2 {
+      color: rgb(221, 37, 114);
+      margin: 15px 0 5px;
+    }
+    .desc {
+      color: rgb(27, 1, 49);
+      font-weight: 500;
+      width: 150px;
+      margin-bottom: 10px;
+    }
+    button {
+      @extend %btnStyle;
+    }
+  }
+}
+.sm {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .head {
+    .links,
+    .join {
+      display: none;
+    }
+    .sm {
+      display: block;
+      position: relative;
+    }
+    .menu {
+      background: linear-gradient(rgba(255, 189, 225, 0.253), transparent);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.123);
+      position: absolute;
+      right: 0;
+      width: 400%;
+      padding: 5px 20px 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      transition: all 0.2s linear;
+
+      &.hide {
+        width: 0;
+        padding: 0;
+        opacity: 0;
+      }
+      .links-sm {
+        li {
+          margin-bottom: 10px;
+          a {
+            color: var(--color);
+            padding: 1px 6px 3px;
+            border-radius: 10px;
+            font-weight: 500;
+            display: block;
+            text-align: center;
+            &.active {
+              color: rgb(27, 3, 66);
+              background-color: var(--color);
+            }
+            &:hover {
+              color: rgb(27, 3, 66);
+              background-color: var(--color);
+            }
+          }
+        }
+      }
+      .join-sm {
+        margin-top: 60px;
+        a {
+          margin: 0 4px;
+          padding: 1px 10px 2px;
+          border-radius: 10px;
+          border: 1px solid rgb(228, 81, 81);
+          color: var(--color);
+          font-weight: 600;
+          display: block;
+          text-align: center;
+        }
+        & :nth-child(2) {
+          background-color: rgb(236, 0, 98);
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .recently {
+    display: block;
+    .box {
+      width: 80%;
+      display: grid;
+      grid-template-areas:
+        "img  title"
+        "img  desc"
+        "img  btn";
+      // width: 531px;
+      margin: 0 auto 30px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.123);
+      .img {
+        grid-area: img;
+      }
+      h2 {
+        grid-area: title;
+        width: fit-content;
+      }
+      .desc {
+        grid-area: desc;
+      }
+      button {
+        grid-area: btn;
+        width: fit-content;
+        margin-left: 40px;
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+  .recently {
+    .box {
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 528px) {
+  .intro {
+    .info {
+      h1 {
+        font-size: 50px;
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .recently {
+    .box {
+      display: block;
+      .img {
+        margin: 0 auto;
+      }
+      h2 {
+        color: black;
+        text-align: center;
+        margin: 15px auto;
+      }
+      .desc {
+        width: fit-content;
+      }
+      button {
+        margin: 0;
+      }
+    }
+  }
+}
+// max width 888px
